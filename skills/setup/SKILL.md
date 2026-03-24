@@ -1416,7 +1416,24 @@ For Claude Code, add to `.claude/settings.json` (using additive merge).
 
 **Critical:** The old flat format (`"type": "command"` at the matcher level) is rejected by Claude Code. Each event must use the nested structure: `"EventName": [{ "matcher": "...", "hooks": [{ "type": "command", "command": "..." }] }]`.
 
-Generate all four hook scripts: session-orient.sh, session-capture.sh, validate-note.sh, auto-commit.sh.
+Generate all four hook scripts by reading and vocabulary-transforming the templates:
+
+1. Read `${CLAUDE_PLUGIN_ROOT}/platforms/claude-code/hooks/session-orient.sh.template`
+2. Read `${CLAUDE_PLUGIN_ROOT}/platforms/claude-code/hooks/session-capture.sh.template`
+3. Read `${CLAUDE_PLUGIN_ROOT}/platforms/claude-code/hooks/write-validate.sh.template`
+4. Read `${CLAUDE_PLUGIN_ROOT}/platforms/claude-code/hooks/auto-commit.sh.template`
+
+For each template:
+- Replace `{{NOTES_DIR:-notes}}` with the vocabulary-mapped notes directory
+- Replace `{{INBOX_DIR:-inbox}}` with the vocabulary-mapped inbox directory
+- Replace `{{OBS_THRESHOLD:-10}}` with the configured observation threshold (default 10)
+- Replace `{{TENSION_THRESHOLD:-5}}` with the configured tension threshold (default 5)
+- Replace `/{DOMAIN:rethink}`, `/{DOMAIN:reduce}`, `/{DOMAIN:reflect}` with vocabulary-mapped skill names
+- Replace `{{DOMAIN:note}}`, `{{DOMAIN:topic_map}}` with vocabulary-mapped terms
+- Remove `{{IF_SELF_SPACE}}` / `{{END_IF_SELF_SPACE}}` comment markers (keep content if self-space is active, remove block if not)
+- Remove `{{IF_DISCOVERY_NUDGE}}` / `{{END_IF_DISCOVERY_NUDGE}}` comment markers (keep content if discovery nudge is active, remove block if not)
+
+Write the transformed scripts to `.claude/hooks/`. CRITICAL: Do NOT generate hook scripts from scratch or improvise their content. The templates contain session tracking, context injection, and condition checks that must be preserved.
 
 ---
 

@@ -21,6 +21,10 @@ git: true
 session_capture: true
 EOF
   fi
+  # Check if plugin hooks are disabled (project hooks take over)
+  if grep -q '^disable_plugin_hooks: true' "$MARKER" 2>/dev/null; then
+    exit 1
+  fi
   exit 0
 fi
 
