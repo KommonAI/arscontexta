@@ -1282,6 +1282,7 @@ The 16 skill sources to install:
 | `${CLAUDE_PLUGIN_ROOT}/skill-sources/ralph/` | ralph | Orchestration |
 | `${CLAUDE_PLUGIN_ROOT}/skill-sources/pipeline/` | pipeline | Orchestration |
 | `${CLAUDE_PLUGIN_ROOT}/skill-sources/tasks/` | tasks | Orchestration |
+| `${CLAUDE_PLUGIN_ROOT}/skill-sources/archive-batch/` | archive-batch | Orchestration |
 | `${CLAUDE_PLUGIN_ROOT}/skill-sources/stats/` | stats | Navigation |
 | `${CLAUDE_PLUGIN_ROOT}/skill-sources/graph/` | graph | Navigation |
 | `${CLAUDE_PLUGIN_ROOT}/skill-sources/next/` | next | Navigation |
