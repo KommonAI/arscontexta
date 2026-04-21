@@ -2,6 +2,7 @@
 name: verify
 description: Combined verification — recite (description quality via cold-read prediction) + validate (schema compliance) + review (health checks). Use as a quality gate after creating notes or as periodic maintenance. Triggers on "/verify", "/verify [note]", "verify note quality", "check note health".
 user-invocable: true
+model: sonnet
 allowed-tools: Read, Write, Edit, Grep, Glob, mcp__qmd__vector_search
 context: fork
 ---
