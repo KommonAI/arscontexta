@@ -2,6 +2,7 @@
 name: reflect
 description: Find connections between notes and update MOCs. Requires semantic judgment to identify genuine relationships. Use after /reduce creates notes, when exploring connections, or when a topic needs synthesis. Triggers on "/reflect", "/reflect [note]", "find connections", "update MOCs", "connect these notes".
 user-invocable: true
+model: sonnet
 allowed-tools: Read, Write, Edit, Grep, Glob, Bash, mcp__qmd__search, mcp__qmd__vector_search, mcp__qmd__deep_search, mcp__qmd__status
 context: fork
 ---

@@ -4,6 +4,7 @@ description: Extract structured knowledge from source material. Comprehensive ex
 version: "1.0"
 generated_from: "arscontexta-v1.6"
 user-invocable: true
+model: sonnet
 allowed-tools: Read, Write, Grep, Glob, mcp__qmd__vector_search
 context: fork
 ---
